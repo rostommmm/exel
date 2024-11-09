@@ -1,0 +1,82 @@
+---- Minecraft Crash Report ----
+// Why did you do that?
+
+Time: 04.07.2024, 22:35
+Description: Rendering screen
+
+java.lang.NullPointerException: Cannot invoke "im.expensive.functions.impl.misc.AhHelper.isState()" because "helper" is null
+	at net.minecraft.client.gui.screen.inventory.ContainerScreen.moveItems(ContainerScreen.java:302)
+	at net.minecraft.client.gui.screen.inventory.ContainerScreen.render(ContainerScreen.java:152)
+	at net.minecraft.client.gui.screen.inventory.ChestScreen.render(ChestScreen.java:63)
+	at net.minecraft.client.renderer.GameRenderer.updateCameraAndRender(GameRenderer.java:779)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:979)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:570)
+	at net.minecraft.client.main.Main.main(Main.java:191)
+	at Start.main(Start.java:11)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at net.minecraft.client.gui.screen.inventory.ContainerScreen.moveItems(ContainerScreen.java:302)
+	at net.minecraft.client.gui.screen.inventory.ContainerScreen.render(ContainerScreen.java:152)
+	at net.minecraft.client.gui.screen.inventory.ChestScreen.render(ChestScreen.java:63)
+
+-- Screen render details --
+Details:
+	Screen name: net.minecraft.client.gui.screen.inventory.ChestScreen
+	Mouse location: Scaled: (480, 252). Absolute: (960.000000, 504.000000)
+	Screen size: Scaled: (960, 505). Absolute: (1920, 1009). Scale factor of 2.000000
+
+-- Affected level --
+Details:
+	All players: 12 total; [ClientPlayerEntity['EnlistedClient'/1005289, l='ClientLevel', x=3.60, y=98.00, z=-10.62], RemoteClientPlayerEntity['grief'/218, l='ClientLevel', x=-3.51, y=99.00, z=-22.50], RemoteClientPlayerEntity['anarchy'/215, l='ClientLevel', x=4.48, y=99.00, z=-22.46], RemoteClientPlayerEntity['dicki41'/1006954, l='ClientLevel', x=0.50, y=100.00, z=0.50], RemoteClientPlayerEntity['Astral7x'/1007089, l='ClientLevel', x=0.50, y=100.00, z=0.50], RemoteClientPlayerEntity['x_HAPPYGIRL_x'/1007314, l='ClientLevel', x=0.50, y=100.00, z=0.50], RemoteClientPlayerEntity['DeCCkSOH'/1007359, l='ClientLevel', x=0.03, y=98.00, z=-7.78], RemoteClientPlayerEntity['porygon914251'/1007495, l='ClientLevel', x=0.50, y=100.00, z=0.50], RemoteClientPlayerEntity['gvkiyvy'/1007584, l='ClientLevel', x=0.50, y=100.00, z=0.50], RemoteClientPlayerEntity['pozvon_qqq'/1007629, l='ClientLevel', x=0.50, y=100.00, z=0.50], RemoteClientPlayerEntity['drowzee9404'/1007630, l='ClientLevel', x=0.50, y=100.00, z=0.50], RemoteClientPlayerEntity['mar777'/1007631, l='ClientLevel', x=0.50, y=100.00, z=0.50]]
+	Chunk stats: Client Chunk Cache: 361, 225
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (0,65,0), Chunk: (at 0,4,0 in 0,0; contains blocks 0,0,0 to 15,255,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+	Level time: 184458 game time, 13008 day time
+	Server brand: BotFilter (git:BungeeCord-Bootstrap:1.20-R0.2-SNAPSHOT:40b570a:unknown) <- Paper
+	Server type: Non-integrated multiplayer server
+Stacktrace:
+	at net.minecraft.client.world.ClientWorld.fillCrashReport(ClientWorld.java:530)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2453)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:586)
+	at net.minecraft.client.main.Main.main(Main.java:191)
+	at Start.main(Start.java:11)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.16.5
+	Minecraft Version ID: 1.16.5
+	Operating System: Windows 11 (amd64) version 10.0
+	Java Version: 17.0.11, Amazon.com Inc.
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Amazon.com Inc.
+	Memory: 299449272 bytes (285 MB) / 606076928 bytes (578 MB) up to 4276092928 bytes (4078 MB)
+	CPUs: 12
+	JVM Flags: 0 total; 
+	Launched Version: mcp
+	Backend library: LWJGL version 3.2.2 build 10
+	Backend API: NVIDIA GeForce RTX 4060 Ti/PCIe/SSE2 GL version 4.6.0 NVIDIA 555.85, NVIDIA Corporation
+	GL Caps: Using framebuffer using OpenGL 3.0
+	Using VBOs: Yes
+	Is Modded: Very likely; Jar signature invalidated
+	Type: Client (map_client.txt)
+	Graphics mode: fancy
+	Resource Packs: vanilla
+	Current Language: English (US)
+	CPU: 12x AMD Ryzen 5 5600X 6-Core Processor 
+	OptiFine Version: OptiFine_1.16.5_HD_U_G8
+	OptiFine Build: ~~NULL~~
+	Render Distance Chunks: 18
+	Mipmaps: 4
+	Anisotropic Filtering: 1
+	Antialiasing: 0
+	Multitexture: false
+	Shaders: null
+	OpenGlVersion: 4.6.0 NVIDIA 555.85
+	OpenGlRenderer: NVIDIA GeForce RTX 4060 Ti/PCIe/SSE2
+	OpenGlVendor: NVIDIA Corporation
+	CpuCount: 12

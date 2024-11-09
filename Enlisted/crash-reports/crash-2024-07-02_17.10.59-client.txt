@@ -1,0 +1,125 @@
+---- Minecraft Crash Report ----
+// Surprise! Haha. Well, this is awkward.
+
+Time: 02.07.2024, 17:10
+Description: Ticking entity
+
+java.lang.NoClassDefFoundError: im/expensive/events/EventDamageReceive$DamageType
+	at net.minecraft.entity.LivingEntity.onLivingFall(LivingEntity.java:1531)
+	at net.minecraft.entity.player.PlayerEntity.onLivingFall(PlayerEntity.java:1671)
+	at net.minecraft.block.Block.onFallenUpon(Block.java:406)
+	at net.minecraft.entity.Entity.updateFallState(Entity.java:1072)
+	at net.minecraft.entity.LivingEntity.updateFallState(LivingEntity.java:258)
+	at net.minecraft.entity.Entity.move(Entity.java:629)
+	at net.minecraft.client.entity.player.ClientPlayerEntity.move(ClientPlayerEntity.java:1077)
+	at net.minecraft.entity.LivingEntity.func_233633_a_(LivingEntity.java:2347)
+	at net.minecraft.entity.LivingEntity.travel(LivingEntity.java:2305)
+	at net.minecraft.entity.player.PlayerEntity.travel(PlayerEntity.java:1552)
+	at net.minecraft.entity.LivingEntity.livingTick(LivingEntity.java:2792)
+	at net.minecraft.entity.player.PlayerEntity.livingTick(PlayerEntity.java:512)
+	at net.minecraft.client.entity.player.ClientPlayerEntity.livingTick(ClientPlayerEntity.java:989)
+	at net.minecraft.entity.LivingEntity.tick(LivingEntity.java:2474)
+	at net.minecraft.entity.player.PlayerEntity.tick(PlayerEntity.java:211)
+	at net.minecraft.client.entity.player.ClientPlayerEntity.tick(ClientPlayerEntity.java:227)
+	at net.minecraft.client.world.ClientWorld.updateEntity(ClientWorld.java:226)
+	at net.minecraft.world.World.guardEntityTick(World.java:556)
+	at net.minecraft.client.world.ClientWorld.tickEntities(ClientWorld.java:191)
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1566)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:956)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:570)
+	at net.minecraft.client.main.Main.main(Main.java:191)
+	at Start.main(Start.java:11)
+Caused by: java.lang.ClassNotFoundException: im.expensive.events.EventDamageReceive$DamageType
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	... 24 more
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at net.minecraft.entity.LivingEntity.onLivingFall(LivingEntity.java:1531)
+	at net.minecraft.entity.player.PlayerEntity.onLivingFall(PlayerEntity.java:1671)
+	at net.minecraft.block.Block.onFallenUpon(Block.java:406)
+	at net.minecraft.entity.Entity.updateFallState(Entity.java:1072)
+	at net.minecraft.entity.LivingEntity.updateFallState(LivingEntity.java:258)
+	at net.minecraft.entity.Entity.move(Entity.java:629)
+	at net.minecraft.client.entity.player.ClientPlayerEntity.move(ClientPlayerEntity.java:1077)
+	at net.minecraft.entity.LivingEntity.func_233633_a_(LivingEntity.java:2347)
+	at net.minecraft.entity.LivingEntity.travel(LivingEntity.java:2305)
+	at net.minecraft.entity.player.PlayerEntity.travel(PlayerEntity.java:1552)
+	at net.minecraft.entity.LivingEntity.livingTick(LivingEntity.java:2792)
+	at net.minecraft.entity.player.PlayerEntity.livingTick(PlayerEntity.java:512)
+	at net.minecraft.client.entity.player.ClientPlayerEntity.livingTick(ClientPlayerEntity.java:989)
+	at net.minecraft.entity.LivingEntity.tick(LivingEntity.java:2474)
+	at net.minecraft.entity.player.PlayerEntity.tick(PlayerEntity.java:211)
+	at net.minecraft.client.entity.player.ClientPlayerEntity.tick(ClientPlayerEntity.java:227)
+	at net.minecraft.client.world.ClientWorld.updateEntity(ClientWorld.java:226)
+
+-- Entity being ticked --
+Details:
+	Entity Type: minecraft:player (net.minecraft.client.entity.player.ClientPlayerEntity)
+	Entity ID: 603111
+	Entity Name: EnlistedClient
+	Entity's Exact location: 0.40, 97.00, 17.95
+	Entity's Block location: World: (0,97,17), Chunk: (at 0,6,1 in 0,1; contains blocks 0,0,16 to 15,255,31), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+	Entity's Momentum: 0.00, -0.78, 0.25
+	Entity's Passengers: []
+	Entity's Vehicle: ~~ERROR~~ NullPointerException: Cannot invoke "net.minecraft.entity.Entity.toString()" because the return value of "net.minecraft.entity.Entity.getRidingEntity()" is null
+Stacktrace:
+	at net.minecraft.world.World.guardEntityTick(World.java:556)
+	at net.minecraft.client.world.ClientWorld.tickEntities(ClientWorld.java:191)
+
+-- Affected level --
+Details:
+	All players: 13 total; [ClientPlayerEntity['EnlistedClient'/603111, l='ClientLevel', x=0.40, y=97.00, z=17.95], RemoteClientPlayerEntity['grief'/172, l='ClientLevel', x=-3.51, y=99.00, z=-22.50], RemoteClientPlayerEntity['anarchy'/169, l='ClientLevel', x=4.48, y=99.00, z=-22.46], RemoteClientPlayerEntity['Roger6614'/604454, l='ClientLevel', x=0.50, y=100.00, z=0.50], RemoteClientPlayerEntity['ya_ne_slaby_ez'/605534, l='ClientLevel', x=0.50, y=100.00, z=0.50], RemoteClientPlayerEntity['dragonair896'/605715, l='ClientLevel', x=0.50, y=100.00, z=0.50], RemoteClientPlayerEntity['soso_phh'/605985, l='ClientLevel', x=0.50, y=100.00, z=0.50], RemoteClientPlayerEntity['zxc_kalarada666'/606254, l='ClientLevel', x=0.50, y=100.00, z=0.50], RemoteClientPlayerEntity['Seledka3'/606750, l='ClientLevel', x=0.41, y=101.01, z=19.04], RemoteClientPlayerEntity['anaga222'/606751, l='ClientLevel', x=0.50, y=100.00, z=0.50], RemoteClientPlayerEntity['Leks_Us'/607334, l='ClientLevel', x=4.16, y=99.00, z=-21.06], RemoteClientPlayerEntity['OPYTAHokey'/607469, l='ClientLevel', x=6.80, y=98.17, z=-19.68], RemoteClientPlayerEntity['MrFleshka149'/607648, l='ClientLevel', x=0.50, y=100.00, z=0.50]]
+	Chunk stats: Client Chunk Cache: 361, 217
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (0,65,0), Chunk: (at 0,4,0 in 0,0; contains blocks 0,0,0 to 15,255,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+	Level time: 178375 game time, 1 day time
+	Server brand: BotFilter (git:BungeeCord-Bootstrap:1.20-R0.2-SNAPSHOT:40b570a:unknown) <- Paper
+	Server type: Non-integrated multiplayer server
+Stacktrace:
+	at net.minecraft.client.world.ClientWorld.fillCrashReport(ClientWorld.java:530)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2296)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:586)
+	at net.minecraft.client.main.Main.main(Main.java:191)
+	at Start.main(Start.java:11)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.16.5
+	Minecraft Version ID: 1.16.5
+	Operating System: Windows 11 (amd64) version 10.0
+	Java Version: 17.0.11, Amazon.com Inc.
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Amazon.com Inc.
+	Memory: 215072304 bytes (205 MB) / 1279262720 bytes (1220 MB) up to 4276092928 bytes (4078 MB)
+	CPUs: 12
+	JVM Flags: 0 total; 
+	Launched Version: mcp
+	Backend library: LWJGL version 3.2.2 build 10
+	Backend API: NVIDIA GeForce RTX 4060 Ti/PCIe/SSE2 GL version 4.6.0 NVIDIA 555.85, NVIDIA Corporation
+	GL Caps: Using framebuffer using OpenGL 3.0
+	Using VBOs: Yes
+	Is Modded: Very likely; Jar signature invalidated
+	Type: Client (map_client.txt)
+	Graphics mode: fancy
+	Resource Packs: vanilla, file/!              §bAnglerfish.zip (incompatible)
+	Current Language: English (US)
+	CPU: 12x AMD Ryzen 5 5600X 6-Core Processor 
+	OptiFine Version: OptiFine_1.16.5_HD_U_G8
+	OptiFine Build: ~~NULL~~
+	Render Distance Chunks: 18
+	Mipmaps: 4
+	Anisotropic Filtering: 1
+	Antialiasing: 0
+	Multitexture: false
+	Shaders: null
+	OpenGlVersion: 4.6.0 NVIDIA 555.85
+	OpenGlRenderer: NVIDIA GeForce RTX 4060 Ti/PCIe/SSE2
+	OpenGlVendor: NVIDIA Corporation
+	CpuCount: 12

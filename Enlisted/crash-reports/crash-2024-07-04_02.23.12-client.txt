@@ -1,0 +1,101 @@
+---- Minecraft Crash Report ----
+// Hi. I'm Minecraft, and I'm a crashaholic.
+
+Time: 04.07.2024, 02:23
+Description: keyPressed event handler
+
+java.lang.NullPointerException: Cannot invoke "im.expensive.Expensive$UserData.getUid()" because "im.expensive.Expensive.userData" is null
+	at net.minecraft.client.gui.screen.inventory.ChestScreen.closeScreen(ChestScreen.java:62)
+	at net.minecraft.client.gui.screen.Screen.keyPressed(Screen.java:87)
+	at net.minecraft.client.gui.screen.inventory.ContainerScreen.keyPressed(ContainerScreen.java:618)
+	at net.minecraft.client.KeyboardListener.lambda$onKeyEvent$4(KeyboardListener.java:373)
+	at net.minecraft.client.gui.screen.Screen.wrapScreenError(Screen.java:510)
+	at net.minecraft.client.KeyboardListener.onKeyEvent(KeyboardListener.java:346)
+	at net.minecraft.client.KeyboardListener.lambda$setupCallbacks$7(KeyboardListener.java:491)
+	at net.minecraft.util.concurrent.ThreadTaskExecutor.execute(ThreadTaskExecutor.java:111)
+	at net.minecraft.client.KeyboardListener.lambda$setupCallbacks$8(KeyboardListener.java:490)
+	at org.lwjgl.glfw.GLFWKeyCallbackI.callback(GLFWKeyCallbackI.java:37)
+	at org.lwjgl.system.JNI.invokeV(Native Method)
+	at org.lwjgl.glfw.GLFW.glfwPollEvents(GLFW.java:3101)
+	at com.mojang.blaze3d.systems.RenderSystem.flipFrame(RenderSystem.java:109)
+	at net.minecraft.client.MainWindow.flipFrame(MainWindow.java:363)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1001)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:570)
+	at net.minecraft.client.main.Main.main(Main.java:191)
+	at Start.main(Start.java:11)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at net.minecraft.client.gui.screen.inventory.ChestScreen.closeScreen(ChestScreen.java:62)
+	at net.minecraft.client.gui.screen.Screen.keyPressed(Screen.java:87)
+	at net.minecraft.client.gui.screen.inventory.ContainerScreen.keyPressed(ContainerScreen.java:618)
+	at net.minecraft.client.KeyboardListener.lambda$onKeyEvent$4(KeyboardListener.java:373)
+
+-- Affected screen --
+Details:
+	Screen name: net.minecraft.client.gui.screen.inventory.ChestScreen
+Stacktrace:
+	at net.minecraft.client.gui.screen.Screen.wrapScreenError(Screen.java:510)
+	at net.minecraft.client.KeyboardListener.onKeyEvent(KeyboardListener.java:346)
+	at net.minecraft.client.KeyboardListener.lambda$setupCallbacks$7(KeyboardListener.java:491)
+	at net.minecraft.util.concurrent.ThreadTaskExecutor.execute(ThreadTaskExecutor.java:111)
+	at net.minecraft.client.KeyboardListener.lambda$setupCallbacks$8(KeyboardListener.java:490)
+	at org.lwjgl.glfw.GLFWKeyCallbackI.callback(GLFWKeyCallbackI.java:37)
+	at org.lwjgl.system.JNI.invokeV(Native Method)
+	at org.lwjgl.glfw.GLFW.glfwPollEvents(GLFW.java:3101)
+	at com.mojang.blaze3d.systems.RenderSystem.flipFrame(RenderSystem.java:109)
+
+-- Affected level --
+Details:
+	All players: 1 total; [ClientPlayerEntity['EnlistedClient'/6201993, l='ClientLevel', x=556.03, y=73.00, z=4.25]]
+	Chunk stats: Client Chunk Cache: 441, 289
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (0,52,0), Chunk: (at 0,3,0 in 0,0; contains blocks 0,0,0 to 15,255,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+	Level time: 131247 game time, 13001 day time
+	Server brand: BotFilter (git:BungeeCord-Bootstrap:1.20-R0.2-SNAPSHOT:40b570a:unknown) <- §6Fun§cCore 1.16.5
+	Server type: Non-integrated multiplayer server
+Stacktrace:
+	at net.minecraft.client.world.ClientWorld.fillCrashReport(ClientWorld.java:530)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2296)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:586)
+	at net.minecraft.client.main.Main.main(Main.java:191)
+	at Start.main(Start.java:11)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.16.5
+	Minecraft Version ID: 1.16.5
+	Operating System: Windows 11 (amd64) version 10.0
+	Java Version: 17.0.11, Amazon.com Inc.
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Amazon.com Inc.
+	Memory: 212865280 bytes (203 MB) / 1021313024 bytes (974 MB) up to 4276092928 bytes (4078 MB)
+	CPUs: 12
+	JVM Flags: 0 total; 
+	Launched Version: mcp
+	Backend library: LWJGL version 3.2.2 build 10
+	Backend API: NVIDIA GeForce RTX 4060 Ti/PCIe/SSE2 GL version 4.6.0 NVIDIA 555.85, NVIDIA Corporation
+	GL Caps: Using framebuffer using OpenGL 3.0
+	Using VBOs: Yes
+	Is Modded: Very likely; Jar signature invalidated
+	Type: Client (map_client.txt)
+	Graphics mode: fancy
+	Resource Packs: vanilla, file/!              §bAnglerfish.zip (incompatible)
+	Current Language: English (US)
+	CPU: 12x AMD Ryzen 5 5600X 6-Core Processor 
+	OptiFine Version: OptiFine_1.16.5_HD_U_G8
+	OptiFine Build: ~~NULL~~
+	Render Distance Chunks: 18
+	Mipmaps: 4
+	Anisotropic Filtering: 1
+	Antialiasing: 0
+	Multitexture: false
+	Shaders: null
+	OpenGlVersion: 4.6.0 NVIDIA 555.85
+	OpenGlRenderer: NVIDIA GeForce RTX 4060 Ti/PCIe/SSE2
+	OpenGlVendor: NVIDIA Corporation
+	CpuCount: 12

@@ -1,0 +1,104 @@
+---- Minecraft Crash Report ----
+// Don't do that.
+
+Time: 06.07.2024, 19:09
+Description: Exception ticking world
+
+java.lang.NoClassDefFoundError: net/minecraft/block/PortalSize
+	at net.minecraft.block.AbstractFireBlock.onBlockAdded(AbstractFireBlock.java:156)
+	at net.minecraft.block.FireBlock.onBlockAdded(FireBlock.java:335)
+	at net.minecraft.block.AbstractBlock$AbstractBlockState.onBlockAdded(AbstractBlock.java:682)
+	at net.minecraft.world.chunk.Chunk.setBlockState(Chunk.java:347)
+	at net.minecraft.world.World.setBlockState(World.java:209)
+	at net.minecraft.world.World.setBlockState(World.java:198)
+	at net.minecraft.world.World.setBlockState(World.java:287)
+	at net.minecraft.fluid.LavaFluid.randomTick(LavaFluid.java:89)
+	at net.minecraft.fluid.FluidState.randomTick(FluidState.java:96)
+	at net.minecraft.world.server.ServerWorld.tickEnvironment(ServerWorld.java:615)
+	at net.minecraft.world.server.ServerChunkProvider.lambda$tickChunks$5(ServerChunkProvider.java:456)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at net.minecraft.world.server.ServerChunkProvider.tickChunks(ServerChunkProvider.java:431)
+	at net.minecraft.world.server.ServerChunkProvider.tick(ServerChunkProvider.java:403)
+	at net.minecraft.world.server.ServerWorld.tick(ServerWorld.java:384)
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:1010)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:937)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:106)
+	at net.minecraft.server.MinecraftServer.func_240802_v_(MinecraftServer.java:743)
+	at net.minecraft.server.MinecraftServer.lambda$func_240784_a_$0(MinecraftServer.java:234)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.ClassNotFoundException: net.minecraft.block.PortalSize
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	... 21 more
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at net.minecraft.block.AbstractFireBlock.onBlockAdded(AbstractFireBlock.java:156)
+	at net.minecraft.block.FireBlock.onBlockAdded(FireBlock.java:335)
+	at net.minecraft.block.AbstractBlock$AbstractBlockState.onBlockAdded(AbstractBlock.java:682)
+	at net.minecraft.world.chunk.Chunk.setBlockState(Chunk.java:347)
+	at net.minecraft.world.World.setBlockState(World.java:209)
+	at net.minecraft.world.World.setBlockState(World.java:198)
+	at net.minecraft.world.World.setBlockState(World.java:287)
+	at net.minecraft.fluid.LavaFluid.randomTick(LavaFluid.java:89)
+	at net.minecraft.fluid.FluidState.randomTick(FluidState.java:96)
+	at net.minecraft.world.server.ServerWorld.tickEnvironment(ServerWorld.java:615)
+	at net.minecraft.world.server.ServerChunkProvider.lambda$tickChunks$5(ServerChunkProvider.java:456)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at net.minecraft.world.server.ServerChunkProvider.tickChunks(ServerChunkProvider.java:431)
+	at net.minecraft.world.server.ServerChunkProvider.tick(ServerChunkProvider.java:403)
+	at net.minecraft.world.server.ServerWorld.tick(ServerWorld.java:384)
+
+-- Affected level --
+Details:
+	All players: 1 total; [ServerPlayerEntity['EnlistedClient'/118, l='ServerLevel[New World]', x=-420.34, y=79.00, z=-1838.18]]
+	Chunk stats: ServerChunkCache: 5506
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (-240,69,224), Chunk: (at 0,4,0 in -15,14; contains blocks -240,0,224 to -225,255,239), Region: (-1,0; contains chunks -32,0 to -1,31, blocks -512,0,0 to -1,255,511)
+	Level time: 303313 game time, 303313 day time
+	Level name: New World
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: true
+	Level weather: Rain time: 103871 (now: false), thunder time: 16158 (now: false)
+	Known server brands: vanilla
+	Level was modded: true
+	Level storage version: 0x04ABD - Anvil
+Stacktrace:
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:1010)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:937)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:106)
+	at net.minecraft.server.MinecraftServer.func_240802_v_(MinecraftServer.java:743)
+	at net.minecraft.server.MinecraftServer.lambda$func_240784_a_$0(MinecraftServer.java:234)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.16.5
+	Minecraft Version ID: 1.16.5
+	Operating System: Windows 11 (amd64) version 10.0
+	Java Version: 17.0.11, Amazon.com Inc.
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Amazon.com Inc.
+	Memory: 590222304 bytes (562 MB) / 1289748480 bytes (1230 MB) up to 4276092928 bytes (4078 MB)
+	CPUs: 12
+	JVM Flags: 0 total; 
+	Player Count: 1 / 8; [ServerPlayerEntity['EnlistedClient'/118, l='ServerLevel[New World]', x=-420.34, y=79.00, z=-1838.18]]
+	Data Packs: vanilla
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Very likely; Jar signature invalidated
+	OptiFine Version: OptiFine_1.16.5_HD_U_G8
+	OptiFine Build: ~~NULL~~
+	Render Distance Chunks: 18
+	Mipmaps: 4
+	Anisotropic Filtering: 1
+	Antialiasing: 0
+	Multitexture: false
+	Shaders: null
+	OpenGlVersion: 4.6.0 NVIDIA 555.85
+	OpenGlRenderer: NVIDIA GeForce RTX 4060 Ti/PCIe/SSE2
+	OpenGlVendor: NVIDIA Corporation
+	CpuCount: 12

@@ -1,0 +1,74 @@
+---- Minecraft Crash Report ----
+// Surprise! Haha. Well, this is awkward.
+
+Time: 05.07.2024, 21:28
+Description: Unexpected error
+
+java.lang.NullPointerException: Cannot invoke "im.expensive.functions.impl.render.HotBar.isState()" because "hotbar" is null
+	at net.minecraft.client.gui.IngameGui.renderHotbar(IngameGui.java:619)
+	at net.minecraft.client.gui.IngameGui.renderIngameGui(IngameGui.java:231)
+	at net.minecraft.client.renderer.GameRenderer.updateCameraAndRender(GameRenderer.java:733)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:979)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:570)
+	at net.minecraft.client.main.Main.main(Main.java:191)
+	at Start.main(Start.java:11)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at net.minecraft.client.gui.IngameGui.renderHotbar(IngameGui.java:619)
+	at net.minecraft.client.gui.IngameGui.renderIngameGui(IngameGui.java:231)
+
+-- Affected level --
+Details:
+	All players: 1 total; [ClientPlayerEntity['EnlistedClient'/118, l='ClientLevel', x=-419.60, y=76.00, z=-1671.70]]
+	Chunk stats: Client Chunk Cache: 1681, 37
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (-240,69,224), Chunk: (at 0,4,0 in -15,14; contains blocks -240,0,224 to -225,255,239), Region: (-1,0; contains chunks -32,0 to -1,31, blocks -512,0,0 to -1,255,511)
+	Level time: 248139 game time, 13000 day time
+	Server brand: vanilla
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.world.ClientWorld.fillCrashReport(ClientWorld.java:530)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2308)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:592)
+	at net.minecraft.client.main.Main.main(Main.java:191)
+	at Start.main(Start.java:11)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.16.5
+	Minecraft Version ID: 1.16.5
+	Operating System: Windows 11 (amd64) version 10.0
+	Java Version: 17.0.11, Amazon.com Inc.
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Amazon.com Inc.
+	Memory: 194433024 bytes (185 MB) / 641728512 bytes (612 MB) up to 4276092928 bytes (4078 MB)
+	CPUs: 12
+	JVM Flags: 0 total; 
+	Launched Version: mcp
+	Backend library: LWJGL version 3.2.2 build 10
+	Backend API: NVIDIA GeForce RTX 4060 Ti/PCIe/SSE2 GL version 4.6.0 NVIDIA 555.85, NVIDIA Corporation
+	GL Caps: Using framebuffer using OpenGL 3.0
+	Using VBOs: Yes
+	Is Modded: Very likely; Jar signature invalidated
+	Type: Client (map_client.txt)
+	Graphics mode: fancy
+	Resource Packs: vanilla, file/Затмение дефолт.zip (incompatible), file/шрифт, file/better_fire.zip, file/! §7V1SUALS §4§lRED §7& §1§lBLUE §7PILL .zip (incompatible), file/!!!!   _4_lмаксу от егорки
+	Current Language: English (US)
+	CPU: 12x AMD Ryzen 5 5600X 6-Core Processor 
+	OptiFine Version: OptiFine_1.16.5_HD_U_G8
+	OptiFine Build: ~~NULL~~
+	Render Distance Chunks: 18
+	Mipmaps: 4
+	Anisotropic Filtering: 1
+	Antialiasing: 0
+	Multitexture: false
+	Shaders: null
+	OpenGlVersion: 4.6.0 NVIDIA 555.85
+	OpenGlRenderer: NVIDIA GeForce RTX 4060 Ti/PCIe/SSE2
+	OpenGlVendor: NVIDIA Corporation
+	CpuCount: 12
